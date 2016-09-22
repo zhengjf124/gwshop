@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>b2c</title>
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-touch-fullscreen" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="default">
+		<link href="../../css/style.css" rel="stylesheet">
+		<script src="../../js/htmlSize.js"></script>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<!--顶部-->
+			<header>
+				<a onclick="javascript:history.back();" class="return"><i>&#xe6d6;</i></a>
+				<div class="header-title">
+					<div class="header-title-center">
+						<em>确认订单</em>
+					</div>
+				</div>
+			</header>
+			<div class="header-h"></div>
+			<!--顶部:over-->
+			<div class="select-address" id="select_address">
+				
+			</div>
+			<div class="shop-goods">
+				<ul id="goods_list">
+					
+				</ul>
+			</div>
+			<div class="shop-send">
+				<ul>
+					<li>
+						<div class="send-item"><strong>配送方式</strong><span>快递（免运费）</span></div>
+					</li>
+				</ul>
+			</div>
+			<div class="shop-send">
+				<ul>
+					<li>
+						<div class="send-item" id="coupon">
+							<strong id="coupon_item"></strong>
+							<span><i>&#xe6d5;</i></span>
+						</div>
+					</li>
+					<li>
+						<div class="send-item" id="user_credit">
+							<strong>最高可用<em id="credit"><em>积分</strong>
+							<span>可抵扣<em id="credit_money"></em>元 <label><i style="font-size:.3rem;padding-left:.1rem;">&#xe626;</i></label></span>
+						</div>
+					</li>
+					<li>
+						<div class="send-item" id="bill">
+							<strong>发票信息</strong>
+							<span><label>电子发票</label><i>&#xe6d5;</i></span>
+						</div>
+						<div class="item-show" id="bill-show">
+							<label data-index="1">电子发票</label>
+							<label data-index="2">个人发票</label>
+							<label data-index="3">单位发票</label>
+						</div>
+						<div class="formSingle" id="bill-form">
+                        	<input type="text" class="txt" placeholder="请填写单位名称" />
+						</div>
+					</li>
+					<li>
+						<textarea class="textarea" placeholder="选填：对本次交易补充说明" id="postscript"></textarea>
+					</li>
+				</ul>
+			</div>
+			<div class="total-pay">
+				<div class="total">
+					<dl>
+						<dt>商品金额：</dt>
+						<dd>￥<span id="total_money">0.00</span></dd>
+					</dl>
+					<dl>
+						<dt>运费：</dt>
+						<dd>+￥<span id="total_fare">0.00</span></dd>
+					</dl>
+					<dl>
+						<dt>优惠券：</dt>
+						<dd>-￥<span id="total_coupons">0.00</span></dd>
+					</dl>
+					<dl>
+						<dt>积分抵现：</dt>
+						<dd>-￥<span id="total_credit">0.00</span></dd>
+					</dl>
+				</div>
+				<div class="pay">
+					<h3>合计：<span>￥</span><span id="total_pay_money">0.00</span></h3>
+                    <!--<button class="btn-full-green" onclick="location.href='pay-success.html'">微信支付</button>-->
+					<button class="btn-full-green" id="submit_add_order">微信支付</button>
+				</div>
+			</div>
+			<!--优惠券弹窗-->
+			<div class="white-bottom" id="coupon-light">		
+        <div class="coupon-show">
+        	<h2>选择优惠券</h2>
+        	<ul id="coupons">
+        		
+        	</ul>
+        </div>
+				<button class="btn-full-red">确定</button>
+
+			</div>
+			<div class="black" id="coupon-black"></div>
+			<!--优惠券弹窗:over-->
+		</div>
+        <!--script-->
+		<script src="../../js/lib/jquery.min.js"></script>        
+        <script src="../../js/gui/cloud.min.js"></script>        
+		<script src="../../js/public.js"></script>
+		<script src="../../js/shopping/balance.js"></script>
+	</body>
+
+</html>

@@ -1,0 +1,258 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>1 项目环境搭建</title>
+
+</head>
+<body>
+<h1>1 项目环境搭建</h1>
+
+<p>目前前端跟后端不在同一工程中开发，前端这边需要自己额外搭建环境，为了更好跟微信端调试，建议先下载<a href="https://mp.weixin.qq.com/wiki/10/e5f772f4521da17fa0d7304f68b97d7e.html">微信web开发者工具</a>。同时为了更好配合微信端授权跳转，需要搭建个web服务器，而不是直接本地打开文件，可以使用apache、nginx搭建环境，然后配置一个代理到测试服务器。</p>
+
+<p>nginx配置举例</p>
+
+<pre><code>    server {
+        listen       80;
+        server_name  localhost;
+        client_max_body_size    1000m;
+
+        location / {
+            root /Users/songyihong/web/ganwei/gwshop/client/weixin/src;
+            index index.htm index.html;
+            add_header Cache-Control no-store;
+            autoindex on;
+        }
+
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+
+        location /Home {
+            proxy_pass http://gwshop.usrboot.com/Home;
+        }
+
+    }
+</code></pre>
+
+<h1>2 安装编译环境</h1>
+
+<ol>
+<li>需先安装nodejs(建议使用4.4.x版本系列)，可直接到nodejs官网下载安装</li>
+<li>安装完nodejs环境后，进入cmd终端，输入<code>node -v</code>和<code>npm -v</code>看下这两条命令有没有输出版本号，如果有输出说明nodejs环境安装成功</li>
+<li>全局安装gulp，在cmd终端下执行<code>npm install gulpjs/gulp#4.0 -g</code>，执行完毕，输入<code>gulp -v</code>，有输出版本号，说明gulp环境安装成功</li>
+<li>然后在cmd终端进到项目目录client/weixin，执行<code>npm install</code>，执行成功后，会在当前目录下生成node_modules目录，<strong><em>注意将node_modules目录从svn中排除提交</em></strong></li>
+<li>完成以上4部，整个编译环境就已经完成，在开发时执行<code>gulp dev</code>，会实时编译样式，需要发布项目时执行<code>gulp dist</code>，会编译压缩代码生成dist目录。在window环境可以直接点击<strong>dev.bat</strong>文件用户开发环境，点击<strong>dist.bat</strong>文件用于发布项目。</li>
+</ol>
+
+
+<h1>3 前端目录结构</h1>
+
+<pre><code>├── dist/  编译压缩过后代码
+├── gulp/  gulp编译脚本
+├── src/   源码目录
+│   ├── css/     编译过后样式文件
+│   ├── fonts/   字体库
+│   ├── html/    html代码，建议html代码按照目录结构划分
+│   ├── images/  图片，多尺寸图片用@2x、@3x命名，编译时会自动生成相关媒体查询
+│   ├── js/    js文件目录
+│   │   ├── gui/         用到ui库，包括自己写以及开源插件
+│   │   ├── lib/         用到js库
+│   │   └── public.js    项目中用到一些共用方法
+│   ├── sass/    未编译样式目录
+│   └── slice/   图标，这些图标最终会被合并成雪碧图    
+├── .csscomb.json    css样式美化配置
+├── gulpfile.js      gulp编译相关配置
+└── package.json     项目配置包
+</code></pre>
+
+<h1>4 发起ajax调用</h1>
+
+<p>目前页面所有发起ajax调用都要通过public.js中方法<code>Pub.post()</code>及<code>Pub.get()</code>两个方法来调用，所有发起ajax请求的不用再处理认证相关数据，只需要关心业务本身数据传递。这两个方法发起请求都是异步的，目前没有提供同步方法，在一些需要同步场景建议使用promise来变通。</p>
+
+<h2>4.1 同步场景1: ajaxA -> ajaxB -> ajaxC</h2>
+
+<p>例如以上ajaxB调用必须在ajaxA完成之后调用，可以采用如下思路进行：</p>
+
+<pre><code>    Pub.post(ajaxA).then(function(dataA){
+        ...
+        return Pub.post(ajaxB, dataA);
+    }).then(function(dataB)){
+        ...
+        return Pub.post(ajaxC, dataB);
+    }).then(function(dataC){
+        ...
+    });
+</code></pre>
+
+<h2>4.2 同步场景2：ajaxC需要在ajaxA\ajaxB同时完成之后进行</h2>
+
+<p>可以采用如下思路进行：</p>
+
+<pre><code>    $.when(
+        Pub.post(ajaxA), 
+        Pub.post(ajaxB)
+    ).then(function(dataA, dataB){
+        ...
+        return Pub.post(ajaxC);
+    }).then(function(dataC){
+        ...
+    });
+</code></pre>
+
+<h1>5 sass样式组织</h1>
+
+<p>不需要进行单独编译的样式文件需要以"_"开头，否则会独立编译出一个样式文件</p>
+</body>
+</html>

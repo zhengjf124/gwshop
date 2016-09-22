@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>b2c</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link href="../../css/style.css" rel="stylesheet">
+    <script src="../../js/htmlSize.js"></script>
+</head>
+
+<body>
+    <div class="wrap">
+        <!--顶部-->
+        <header>
+            <a onclick="javascript:history.back();" class="return"><i>&#xe6d6;</i></a>
+            <div class="header-title">
+                <div class="header-title-center">
+                    <em>购物车</em>
+                </div>
+            </div>
+            <a class="cart-edit">编辑全部</a>
+            <a href="http://sighttp.qq.com/authd?IDKEY=6ebcd20f0096ad7d13a5bec516cce87482080711a17ab70a" target="_blank" class="header-right"><i>&#xe677;</i></a>
+        </header>
+        <div class="header-h"></div>
+        <!--顶部:over-->
+        <!--购物车列表-->
+        <div class="cart-list">
+            <ul id="cart_list">
+                
+            </ul>
+        </div>
+        <!--购物车列表:over-->
+        
+        <!--底部-->
+        <div class="cart-bar-h"></div>
+        <!--购物车删除的底部-->
+        <!--<div class="cart-bar-delect">
+				<div class="check-total">
+					<label><i>&#xe61a;</i>全选</label>
+				</div>
+				<button>删除</button>
+			</div>-->
+        <!--购物车结算的底部-->
+        <div class="cart-bar-balance">
+            <div class="check-total">
+                <label><i>&#xe619;</i>全选</label>&nbsp;&nbsp;<a id="del_all">删除</a>
+                <span>合计：<strong>￥ <em id="total_price">0.00</em></strong></span>
+            </div>
+            <!-- <div class="check-total">
+					<label><input name="" type="checkbox" value="1" cartlevel="1" />全选</label>
+					<span>合计：<strong id="TotalAmount">￥ 0.0</strong></span>
+				</div> -->
+            <button id="submit_balance">结算(<span id="count_num">0</span>)</button>
+        </div>
+        <!--底部:over-->
+        <!--底部导航-->
+        <div class="foot-bar-h"></div>
+        <div class="foot-bar">
+            <ul>
+                <li>
+                    <a href="../index.html">
+                        <i>&#xe6bb;</i>
+                        <p>首页</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="../goods/category.html">
+                        <i>&#xe6b9;</i>
+                        <p>分类</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="cart.html" class="active">
+                        <i>&#xe61c;</i>
+                        <p>购物车</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="../user/user-center.html">
+                        <i>&#xe646;</i>
+                        <p>我</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--底部导航:over-->
+    </div>
+    <!--script-->
+    <script src="../../js/lib/jquery.min.js"></script>
+    <script src="../../js/public.js"></script>
+    <script src="../../js/gui/cloud.min.js"></script>
+    <script src="../../js/shopping/cart.js"></script>
+</body>
+
+</html>

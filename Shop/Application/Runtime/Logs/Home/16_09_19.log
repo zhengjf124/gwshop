@@ -1,0 +1,41 @@
+[ 2016-09-19T08:46:22+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.037002s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.011001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.011001s ]
+SQL: SHOW COLUMNS FROM `gwshop_ad` [ RunTime:0.0560s ]
+SQL: SELECT `ad_name`,`ad_link`,`ad_code` FROM `gwshop_ad` WHERE `pid` = 1  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `gwshop_goods_category` [ RunTime:0.0170s ]
+SQL: SELECT `type_name`,`type_img`,`id` FROM `gwshop_goods_category` WHERE ( level=1 ) ORDER BY sort_order LIMIT 4   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `gwshop_goods` [ RunTime:0.0150s ]
+SQL: SELECT `id`,`goods_img`,`goods_price`,`goods_name`,`goods_brief`,`click_count`,`favorite_count`,`comment_count` FROM `gwshop_goods` WHERE ( is_recommend=1 and is_on_sale=1 ) ORDER BY id DESC LIMIT 3   [ RunTime:0.0010s ]
+SQL: SELECT `id`,`goods_img`,`goods_price`,`goods_name`,`market_price` FROM `gwshop_goods` WHERE ( gtype=2 and is_on_sale=1 ) ORDER BY id DESC LIMIT 3   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `gwshop_active` [ RunTime:0.0070s ]
+SQL: SELECT `end_time` FROM `gwshop_active` WHERE `type` = 'limit_goods' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `id`,`goods_img`,`goods_price`,`goods_name`,`goods_brief`,`click_count` FROM `gwshop_goods` WHERE ( is_hot=1 and is_on_sale=1 ) ORDER BY id DESC LIMIT 8   [ RunTime:0.0010s ]
+
+[ 2016-09-19T08:46:23+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+
+[ 2016-09-19T10:05:43+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `gwshop_ad` [ RunTime:0.0040s ]
+SQL: SELECT `ad_name`,`ad_link`,`ad_code` FROM `gwshop_ad` WHERE `pid` = 1  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `gwshop_goods_category` [ RunTime:0.0030s ]
+SQL: SELECT `type_name`,`type_img`,`id` FROM `gwshop_goods_category` WHERE ( level=1 ) ORDER BY sort_order LIMIT 4   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `gwshop_goods` [ RunTime:0.0040s ]
+SQL: SELECT `id`,`goods_img`,`goods_price`,`goods_name`,`goods_brief`,`click_count`,`favorite_count`,`comment_count` FROM `gwshop_goods` WHERE ( is_recommend=1 and is_on_sale=1 ) ORDER BY id DESC LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT `id`,`goods_img`,`goods_price`,`goods_name`,`market_price` FROM `gwshop_goods` WHERE ( gtype=2 and is_on_sale=1 ) ORDER BY id DESC LIMIT 3   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `gwshop_active` [ RunTime:0.0030s ]
+SQL: SELECT `end_time` FROM `gwshop_active` WHERE `type` = 'limit_goods' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `id`,`goods_img`,`goods_price`,`goods_name`,`goods_brief`,`click_count` FROM `gwshop_goods` WHERE ( is_hot=1 and is_on_sale=1 ) ORDER BY id DESC LIMIT 8   [ RunTime:0.0000s ]
+

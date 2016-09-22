@@ -1,0 +1,449 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>1. 目的</title>
+
+</head>
+<body>
+<h1>前端编码规范</h1>
+
+<table>
+<thead>
+<tr>
+<th> 版本号 </th>
+<th> 更改人 </th>
+<th> 审核人 </th>
+<th> 批准人 </th>
+<th> 生效日期 </th>
+<th>  更改内容              </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 1.0   </td>
+<td> 宋义洪 </td>
+<td>      </td>
+<td>       </td>
+<td>  2016.07.05 </td>
+<td> 初稿              </td>
+</tr>
+<tr>
+<td>       </td>
+<td>       </td>
+<td>       </td>
+<td>       </td>
+<td>         </td>
+<td>                      </td>
+</tr>
+<tr>
+<td>       </td>
+<td>       </td>
+<td>       </td>
+<td>       </td>
+<td>         </td>
+<td>                      </td>
+</tr>
+<tr>
+<td>       </td>
+<td>       </td>
+<td>       </td>
+<td>       </td>
+<td>         </td>
+<td>                      </td>
+</tr>
+<tr>
+<td>       </td>
+<td>       </td>
+<td>       </td>
+<td>       </td>
+<td>         </td>
+<td>                      </td>
+</tr>
+<tr>
+<td>       </td>
+<td>       </td>
+<td>       </td>
+<td>       </td>
+<td>         </td>
+<td>                      </td>
+</tr>
+</tbody>
+</table>
+
+
+<h2>1. 目的</h2>
+
+<p>为了使前端代码风格保持一致，便于团队成员之间代码理解及维护，制定本规范，希望大家遵循。同时本规范会在实践中不断更新的。</p>
+
+<h2>2. 说明</h2>
+
+<p>关键字[强制]，表示必须执行的内容</p>
+
+<p>关键字[禁止]，表示禁止执行的内容</p>
+
+<p>关键字[建议]，表示一种好的习惯</p>
+
+<hr />
+
+<h2>3. html代码规范</h2>
+
+<h3>3.1 文件命名及编码约定</h3>
+
+<ul>
+<li>[建议]文件统一采用无<code>BOM</code>的<code>UTF-8</code>编码，UTF-8 编码具有更广泛的适应性，BOM在使用程序或工具处理文件时可能造成不必要的干扰。</li>
+<li>[强制]文件命名一律使用小写英文字符、数字和连字符，多个单词之间使用连字符(-)</li>
+<li>[建议]尽量使用英文单词命名，在不影响语义情况下英文单词可以适当缩写或出现过长文件名时可以缩写，确实无法找到适当单词时，可以使用中文拼音，[禁止]使用拼音首字母来命名</li>
+</ul>
+
+
+<h3>3.2 缩进</h3>
+
+<ul>
+<li>[强制]使用<code>4</code>个空格作为一个缩进层级，[禁止]使用2个空格或tab字符</li>
+</ul>
+
+
+<h3>3.3 文件声明头规定</h3>
+
+<ul>
+<li>[强制]所有html文件必须要有<code>DOCTYPE</code>声明头，很多时候很诡异样式问题都是少了声明头引起的</li>
+<li>[建议]采用html5声明头进行对文件声明<code>&lt;!DOCTYPE html&gt;</code></li>
+<li>[强制]在文件中必须明确指定字符编码。指定字符编码的meta必须是head的直接子元素，比如<code>&lt;meta charset="utf-8" /&gt;</code></li>
+<li>[建议]在html标签上设置正确的lang属性，比如<code>&lt;html lang="zh-CN"&gt;</code></li>
+</ul>
+
+
+<h3>3.3 class和id命名</h3>
+
+<ul>
+<li>[建议]id 和 class 的命名总规则为： 内容优先,表现为辅。首先根据内容来命名, 比如 main-nav。 如果根据内容找不到合适的命名, 可以再结合表现来定, 比如 skin-blue, present-tab, col-main。对于通用样式库class命名多采用表现来命名，比如fr，mt-10</li>
+<li>[强制]id和class名称必须为小写英文字符、数字、连字符(-)和下划线(_)，其中class必须使用连字符(-),id必须使用下划线(_)</li>
+<li>[建议]id和class尽量使用英文单词名称，在不影响语义情况下英文单词可以适当缩写，比如 col, nav, hd, bd, ft 等, 但切忌自造缩写。确实无法找到适当单词时，可以考虑使用产品的中文拼音, 对于中国以及特色词汇, 也可以使用拼音, 除了产品名称和特色词汇, 其它任何情况下都严禁使用拼音，[禁止]使用拼音首字母来命名</li>
+<li>[强制]id 和 class 名称中的第一个词必须是单词全拼或语义非常清晰的单词缩写, 比如 present, col。</li>
+<li>[强制]id命名必须保证页面唯一</li>
+</ul>
+
+
+<h3>3.4 标签</h3>
+
+<ul>
+<li>[强制]所有标签和属性名必须小写，属性值必须小写</li>
+<li>[强制]所有标签都必须要闭合，要注意检查标签是否缺少闭合，注意区分自闭合元素和非自闭合元素闭合方式</li>
+<li>[强制]标签使用必须符合标签嵌套规则</li>
+<li>[建议]自定义属性建议使用<code>data-</code> 开头命名，有助于区分自定义属性和标准定义的属性</li>
+</ul>
+
+
+<h3>3.5 css和javascript引入</h3>
+
+<ul>
+<li>[强制]引入CSS时必须指明<code>rel="stylesheet"</code></li>
+<li>[禁止]不允许直接在标签上写javascript代码，比如<code>onclick=function(){}</code></li>
+<li>[禁止]不能在标签中直接写内联样式。通过javascript更改标签表现行为时，优先使用切换class来更改标签表现行为，在无法实现情况下，可通过javascript操作内联样式。</li>
+</ul>
+
+
+<h3>3.6 图片</h3>
+
+<ul>
+<li>[禁止]禁止img的src取值为空。延迟加载的图片也要增加默认的src</li>
+<li>[建议]添加width和height属性，以避免页面抖动</li>
+</ul>
+
+
+<h3>3.7 表单</h3>
+
+<ul>
+<li>[强制]有文本标题的控件必须使用label标签将其与其标题相关联。特别是radio框和checkbox框，必须把文本跟选择框关联起来</li>
+<li>[强制]使用button元素时必须指明type属性值，在form中button默认会submit表单</li>
+</ul>
+
+
+<hr />
+
+<h2>4. css代码规范</h2>
+
+<h3>4.1 文件命名及编码约定</h3>
+
+<ul>
+<li>参考html规范文件命名及编码约定部分</li>
+<li>[强制]压缩过后css文件必须以<code>.min.css</code>为后缀</li>
+</ul>
+
+
+<h3>4.2 代码风格</h3>
+
+<ul>
+<li>[强制]使用<code>4</code>个空格做为缩进层级，[禁止]使用2个空格或tab字符</li>
+<li>[强制]选择器与{之前必须包含空格，比如<code>.selector {}</code></li>
+<li>[强制]属性名与之后:之前不允许空格，:与属性值之间必须包含空格。比如：<code>margin: 0;</code></li>
+<li>[强制]列表型属性值书写在单行时，,后必须跟一个空格。比如<code>font-family: Arial, sans-serif;</code></li>
+<li>[强制]属性定义必须另起一行，不要全写在一行，后续css样式文件都会压缩</li>
+<li>[强制]属性定义后必须以分号结尾。</li>
+</ul>
+
+
+<h3>4.3 选择器及属性约定</h3>
+
+<ul>
+<li>[强制]要理解最右边优先原理，CSS选择符是从右到左进行匹配的，因此如无必要，不得为id、class选择器添加类型选择器进行限定，避免使用通用规则。比如<code>p.danger-message</code> p可以去掉</li>
+<li>[禁止]禁止对通用选择器设置选择器非默认的行为，一般会使用css的reset库重置通用选择器，使得所有浏览器通用选择器默认行为一致。比如直接对<code>li</code>设置背景色是不允许的。</li>
+<li>[建议]尽量避免使用id作为选择器，id一般提供给javascript调用</li>
+</ul>
+
+
+<h3>4.4 其他约定</h3>
+
+<ul>
+<li>[强制]当内部元素浮动时，需要在标签上清除浮动，清除浮动可以通过对伪类设置clear或触发BFC的方式进行 clearfix。尽量不使用增加空标签的方式。</li>
+<li>[禁止]除了需要使用alpha的颜色，禁止使用rgb(),而应该使用十六进制记号形式#rrggbb</li>
+<li>[禁止]不允许使用颜色名设置颜色。比如<code>color: red;</code>应该改为<code>color: #f00;</code></li>
+<li>[强制]font-family属性中字体族要使用字体的英文名，有空格时需要放在引号中。</li>
+<li>[强制]font-family按「西文字体在前、中文字体在后」、「效果佳 (质量高/更能满足需求) 的字体在前、效果一般的字体在后」的顺序编写，最后必须指定一个通用字体族( serif / sans-serif )</li>
+<li>[强制]字体大小不能小于12px，小于12px字体没有可读性，而且chrome浏览器不支持</li>
+<li>[建议]使用transition时应指定transition-property。比如<code>transition: all 1s;</code>尽量避免使用all。</li>
+<li>[强制]书写响应式Media Query不得单独编排，必须与相关的规则一起定义，不能在集中在一处写。</li>
+<li>[建议]在less/sass中写兼容性属性时不需要添加前缀，前缀应该在样式编译时加上。</li>
+<li>[禁止]禁止使用Expression</li>
+<li>[禁止]禁止使用@import</li>
+</ul>
+
+
+<h2>5. javascript代码规范</h2>
+
+<h3>5.1 文件命名及编码约定</h3>
+
+<ul>
+<li>参考html规范文件命名及编码约定部分</li>
+<li>[强制]压缩过后js文件必须以<code>.min.js</code>为后缀</li>
+</ul>
+
+
+<h3>5.2  代码风格</h3>
+
+<h4>5.2.2 缩进及空格</h4>
+
+<ul>
+<li>[强制]使用4个空格做为一个缩进层级，不允许使用2个空格或tab字符。</li>
+<li>[强制]switch下的case和default必须增加一个缩进层级。</li>
+<li>[强制]二元运算符两侧必须有一个空格，一元运算符与操作对象之间不允许有空格。比如`a++; a = b + c;‘</li>
+<li>[强制]用作代码块起始的左花括号{前必须有一个空格。</li>
+<li>[强制]if / else / for / while / function / switch / do / try / catch / finally 关键字后，必须有一个空格。</li>
+<li>[强制]函数名和(之间不允许有空格。</li>
+<li>[强制]for循环条件中, 分号后要有空格</li>
+<li>[强制],和;前不允许有空格，,和:之后一定要有空格。</li>
+<li>[强制]()和[]在一行的，()和[]内紧贴括号部分不允许有空格。</li>
+<li>[强制]行尾不得有多余的空格。</li>
+</ul>
+
+
+<h4>5.2.3 换行</h4>
+
+<ul>
+<li>[强制]每个独立语句结束后必须换行</li>
+<li>[强制]运算符处换行时，运算符必须在新行的行首。比如拼接很长字符串，新行用<code>+</code>开始。</li>
+<li>[强制]在函数声明、函数表达式、函数调用、对象创建、数组创建、for语句等场景中，不允许在,或;前换行。</li>
+</ul>
+
+
+<h4>5.2.4 语句</h4>
+
+<ul>
+<li>[强制]不得省略语句结束的分号。</li>
+<li>[禁止]函数定义结束不允许添加分号。</li>
+</ul>
+
+
+<h4>5.2.5 命名</h4>
+
+<ul>
+<li>[强制]变量、函数、函数参数、类的方法/属性、命名空间使用驼峰式命名</li>
+<li>[强制]常量使用全部字母大写，单词间下划线分隔的命名方式。</li>
+<li>[强制]类使用帕斯卡命名法，即第一个字符要大写。例如<code>PullRefresh</code></li>
+<li>[强制]枚举变量使用帕斯卡命名法，枚举的属性使用全部字母大写，单词间下划线分隔的命名方式。</li>
+<li>[强制]由多个单词组成的缩写词，在命名中，根据当前命名法和出现的位置，所有字母的大小写与首字母的大小写保持一致。比如<code>XMLParser</code></li>
+<li>[强制]私有变量、私有方法以<code>_</code>开始</li>
+<li>[强制]jQuery变量以<code>$</code>开始</li>
+<li>[强制]类名使用名词</li>
+<li>[建议]函数名使用动宾短语</li>
+<li>[建议]boolean类型的变量使用is或has开头。</li>
+<li>[建议]Promise对象用动宾短语的进行时表达。比如<code>var loadingData = ajax.get('url');</code></li>
+</ul>
+
+
+<h3>5.3语言特性</h3>
+
+<ul>
+<li>[强制]变量在使用前必须要先通过<code>var</code>定义</li>
+<li>[强制]在条件判断中使用类型严格的 <code>===</code>。仅当判断null或undefined时，允许使用<code>== null</code>。</li>
+<li>[禁止]不允许修改内置对象原型</li>
+<li>[强制]对象创建时，对象属性要不都加引号，要不都不加引号</li>
+<li>[强制]不要使用<code>for in</code>遍历数组，数组对象可能存在数字以外的属性</li>
+<li>[强制]在一个项目中对dom操作不可以混合使用原生及jQuery操作方式，要不都使用原生，要不都使用jQuery操作方式</li>
+</ul>
+
+
+<hr />
+
+<h2>6. 切图规范</h2>
+
+<h3>6.1 图片命名</h3>
+
+<ul>
+<li>[强制]文件命名一律使用小写英文字符、数字和连字符，多个单词之间使用两字符(-)</li>
+<li>[建议]尽量使用英文单词命名，在不影响语义情况下英文单词可以适当缩写或出现过长文件名时可以缩写，确实无法找到适当单词时，可以使用中文拼音，[禁止]使用拼音首字母来命名</li>
+</ul>
+
+</body>
+</html>
